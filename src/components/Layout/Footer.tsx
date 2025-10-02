@@ -1,62 +1,95 @@
-import Image from "next/image";
 import { useTranslation } from "next-i18next";
-import Container from "../../components/Container";
 import { FunctionComponent, ReactNode } from "react";
-import At from "../At";
+import {
+  Footer,
+  SiteInfo,
+  FooterSection,
+  SiteLinkGroup,
+  SiteLink,
+  FooterLogo,
+} from "@govtechmy/myds-react/footer";
+import { Link } from "@govtechmy/myds-react/link";
+import {
+  FacebookIcon,
+  GithubIcon,
+  InstagramIcon,
+  TwitterXIcon,
+  YoutubeIcon,
+} from "@govtechmy/myds-react/icon";
 
 interface FooterProps {
   title?: ReactNode;
   children?: ReactNode;
 }
 
-const Footer: FunctionComponent<FooterProps> = ({ title, children }) => {
+const FooterComponent: FunctionComponent<FooterProps> = ({
+  title,
+  children,
+}) => {
   const { t } = useTranslation();
 
   return (
-    <Container background="bg-background dark:bg-black border-t dark:border-washed-dark border-outline pt-12 pb-16 z-10">
-      <div className="flex w-full flex-col items-center gap-8">
-        {/* LOGO */}
-        <div className="flex items-center gap-2">
-          <div className="w-12">
-            {/* <Image src="/static/images/jata_logo.png" width={48} height={36} alt="jata negara" /> */}
+    <>
+      <Footer>
+        <FooterSection className="mx-auto flex w-full max-w-[1280px] flex-col items-start gap-6 px-4 sm:px-6 md:flex-row md:items-start md:justify-between md:gap-8">
+          <SiteInfo className="w-full md:w-auto">
+            <div className="text-txt-black-900 flex items-center gap-x-2.5">
+              <FooterLogo
+                logoTitle={
+                  <p className="font-poppins text-body-md whitespace-nowrap font-semibold">
+                    CIVICTECH.MY
+                  </p>
+                }
+                logo={
+                  <img
+                    src="/static/images/icons/tiger-color.png"
+                    width={36}
+                    alt="CivicTechMy Logo"
+                    className="select-none"
+                  />
+                }
+              />
+            </div>
+            <p className="text-txt-black-900 text-body-sm not-prose font-regular">
+              Civic Technology Community Malaysia
+            </p>
+            <p className="text-txt-black-900 text-body-sm not-prose font-semibold">
+              Follow us
+            </p>
+            <div className="flex gap-3">
+              <Link
+                href="https://github.com/civictechmy"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook link"
+                underline="none"
+                className="hover:text-txt-black-900"
+              >
+                <GithubIcon className="text-txt-black-700" />
+              </Link>
+            </div>
+          </SiteInfo>
+        </FooterSection>
+        <FooterSection className="text-txt-black-500 mx-auto flex w-full max-w-[1280px] flex-col gap-4 border-none px-4 text-sm sm:px-6 md:flex-row md:items-center md:justify-between md:gap-6">
+          <div className="flex flex-col gap-2 md:gap-3">
+            <p>© 2025 Civic Technology Community Malaysia (CivicTechMY)</p>
+            <p>Website source code: Licensed under MIT License.</p>
+            <p>
+              Content (text, articles, documentation): Licensed under Creative
+              Commons Attribution 4.0 International (CC-BY 4.0).
+            </p>
+            <p>Logo and branding: All Rights Reserved.</p>
+            {/* TODO: Add disclaimer and privacy policy */}
+            {/* <div className="text-txt-black-700 mt-1 flex flex-row gap-4">
+              <a href="#">Disclaimer</a>
+              <a href="#">Privacy Policy</a>
+            </div> */}
           </div>
-
-          {/* <p className="font-bold uppercase">{t("common:nav.gov")}</p> */}
-        </div>
-
-        {/* NAV */}
-        <div className="flex flex-col gap-4.5">
-          <div className="flex items-center justify-center gap-6">
-            <p className="font-medium">{t("common:nav.open_source")}:</p>
-            <At className="link-dim" external href="#">
-              {t("common:nav.frontend")}
-            </At>
-            <At className="link-dim" external href="#">
-              {t("common:nav.uiux")}
-            </At>
-          </div>
-
-          <div className="flex items-center justify-center gap-6">
-            <At className="link-dim" external href="#">
-              {t("common:nav.about_us")}
-            </At>
-            <At className="link-dim" external href="#">
-              {t("common:nav.our_work")}
-            </At>
-            <At className="link-dim" external href="#">
-              {t("common:nav.contact_us")}
-            </At>
-            <At className="link-dim" external href="#">
-              {t("common:nav.join_us")}
-            </At>
-          </div>
-        </div>
-        <div className="h-[1px] w-full bg-outline dark:bg-washed-dark" />
-
-        <p className="text-sm text-dim">© {new Date().getFullYear()} Dummy</p>
-      </div>
-    </Container>
+          <p className="text-txt-black-700">Last updated: 3rd October 2025</p>
+        </FooterSection>
+      </Footer>
+    </>
   );
 };
 
-export default Footer;
+export default FooterComponent;

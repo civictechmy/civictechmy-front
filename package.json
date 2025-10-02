@@ -11,6 +11,8 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@govtechmy/myds-react": "^1.0.2",
+    "@govtechmy/myds-style": "^1.0.0",
     "@headlessui/react": "^1.7.17",
     "@headlessui/tailwindcss": "^0.2.0",
     "@heroicons/react": "^2.0.18",
@@ -37,13 +39,13 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "@types/react-window": "^1.8.8",
-    "autoprefixer": "^10.0.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8",
     "eslint-config-next": "14.0.2",
-    "postcss": "^8",
+    "postcss": "^8.4.47",
     "prettier": "^3.6.2",
     "prettier-plugin-tailwindcss": "^0.6.14",
-    "tailwindcss": "^3.3.0",
+    "tailwindcss": "^3.4.14",
     "typescript": "^5"
   },
   "lint-staged": {

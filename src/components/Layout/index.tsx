@@ -11,9 +11,8 @@ interface LayoutProps {
 const Layout: FunctionComponent<LayoutProps> = ({ className, children }) => {
   return (
     <div className={className}>
-      <div className="flex min-h-screen flex-col">
-        <div className="flex flex-grow flex-col">{children}</div>
-      </div>
+      <Header />
+      {children}
       <Footer />
     </div>
   );
