@@ -9,7 +9,11 @@ interface MetadataProps {
   keywords?: string;
 }
 
-const Metadata: FunctionComponent<MetadataProps> = ({ title, description, keywords = "" }) => {
+const Metadata: FunctionComponent<MetadataProps> = ({
+  title,
+  description,
+  keywords = "",
+}) => {
   const { t, i18n } = useTranslation();
   const {
     publicRuntimeConfig: {

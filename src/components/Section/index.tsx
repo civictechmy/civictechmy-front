@@ -1,6 +1,13 @@
 import { clx, toDate } from "@lib/helper";
 import { useTranslation } from "@lib/hooks/useTranslation";
-import { FunctionComponent, ReactNode, forwardRef, LegacyRef, ForwardedRef, useMemo } from "react";
+import {
+  FunctionComponent,
+  ReactNode,
+  forwardRef,
+  LegacyRef,
+  ForwardedRef,
+  useMemo,
+} from "react";
 import { DateTime } from "luxon";
 
 interface SectionProps {
@@ -16,7 +23,7 @@ interface SectionProps {
 const Section: FunctionComponent<SectionProps> = forwardRef(
   (
     { title, className = "py-8 lg:py-12", description, children, date, menu },
-    ref: LegacyRef<HTMLElement> | undefined
+    ref: LegacyRef<HTMLElement> | undefined,
   ) => {
     const { t, i18n } = useTranslation();
 
@@ -25,7 +32,8 @@ const Section: FunctionComponent<SectionProps> = forwardRef(
 
       if (typeof date === "string") {
         if (
-          (DateTime.fromSQL(date).isValid || DateTime.fromFormat(date, "yyyy-'Q'q").isValid) &&
+          (DateTime.fromSQL(date).isValid ||
+            DateTime.fromFormat(date, "yyyy-'Q'q").isValid) &&
           date.length > 4
         )
           return toDate(date, "dd MMM yyyy, HH:mm", i18n.language);
@@ -41,7 +49,7 @@ const Section: FunctionComponent<SectionProps> = forwardRef(
               <div className="flex flex-col flex-wrap items-start gap-2 lg:flex-row lg:items-center lg:justify-between">
                 {title && typeof title === "string" ? <h4>{title}</h4> : title}
                 {date && date !== null && (
-                  <span className="text-dim text-right text-sm">
+                  <span className="text-right text-sm text-dim">
                     {t("common:common.data_of", { date: displayDate })}
                   </span>
                 )}
@@ -49,8 +57,8 @@ const Section: FunctionComponent<SectionProps> = forwardRef(
               {(description || menu) && (
                 <div
                   className={clx(
-                    "text-dim flex w-full flex-wrap justify-between gap-y-3 md:flex-nowrap md:items-start",
-                    description && menu && "gap-x-6"
+                    "flex w-full flex-wrap justify-between gap-y-3 text-dim md:flex-nowrap md:items-start",
+                    description && menu && "gap-x-6",
                   )}
                 >
                   {description && typeof description === "string" ? (
@@ -65,7 +73,11 @@ const Section: FunctionComponent<SectionProps> = forwardRef(
                   ) : (
                     <div>{description}</div>
                   )}
-                  {menu && <div className="flex w-full gap-3 md:w-auto md:justify-end">{menu}</div>}
+                  {menu && (
+                    <div className="flex w-full gap-3 md:w-auto md:justify-end">
+                      {menu}
+                    </div>
+                  )}
                 </div>
               )}
             </div>
@@ -76,7 +88,7 @@ const Section: FunctionComponent<SectionProps> = forwardRef(
         </div>
       </section>
     );
-  }
+  },
 );
 
 Section.displayName = "Section";

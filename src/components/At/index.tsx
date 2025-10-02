@@ -36,7 +36,12 @@ const At: FunctionComponent<AtProps> = ({
     </>
   );
   return external ? (
-    <a href={href} className={className} onClick={onClick} target={target ?? "_blank"}>
+    <a
+      href={href}
+      className={className}
+      onClick={onClick}
+      target={target ?? "_blank"}
+    >
       {content}
     </a>
   ) : (

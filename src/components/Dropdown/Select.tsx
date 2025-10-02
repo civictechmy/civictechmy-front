@@ -51,7 +51,7 @@ const Select: FunctionComponent<SelectProps> = ({
 
   const recurOptions = (
     options: Record<string, OptionType[]> | OptionType[],
-    key?: string
+    key?: string,
   ): any => {
     if (isOptions(options)) {
       return (
@@ -59,15 +59,21 @@ const Select: FunctionComponent<SelectProps> = ({
           className="dark:border-outlineHover-dark relative w-full bg-white dark:bg-black"
           key={key}
         >
-          {key && <h5 className="bg-washed sticky top-0 z-10 px-4 py-1.5 text-sm">{key}</h5>}
+          {key && (
+            <h5 className="sticky top-0 z-10 bg-washed px-4 py-1.5 text-sm">
+              {key}
+            </h5>
+          )}
           <div>
-            {options.map(option => (
+            {options.map((option) => (
               <Listbox.Option
                 key={option.value}
                 className={[
-                  "hover:bg-washed dark:hover:bg-washed-dark relative flex cursor-default select-none items-center gap-2 py-2 pr-4 transition-all",
+                  "relative flex cursor-default select-none items-center gap-2 py-2 pr-4 transition-all hover:bg-washed dark:hover:bg-washed-dark",
                   multiple ? "pl-10" : "pl-8",
-                  selected.some((item: OptionType) => item.value == option.value)
+                  selected.some(
+                    (item: OptionType) => item.value == option.value,
+                  )
                     ? "bg-washed dark:bg-washed-dark"
                     : "bg-inherit",
                 ].join(" ")}
@@ -89,9 +95,11 @@ const Select: FunctionComponent<SelectProps> = ({
                       readOnly
                       checked={
                         selected &&
-                        (selected as OptionType[]).some(item => item.value === option.value)
+                        (selected as OptionType[]).some(
+                          (item) => item.value === option.value,
+                        )
                       }
-                      className="border-outline text-dim h-4 w-4 rounded focus:ring-0"
+                      className="h-4 w-4 rounded border-outline text-dim focus:ring-0"
                     />
                   </span>
                 )}
@@ -102,11 +110,13 @@ const Select: FunctionComponent<SelectProps> = ({
       );
     }
 
-    return Object.entries(options).map(([key, values]) => recurOptions(values, key));
+    return Object.entries(options).map(([key, values]) =>
+      recurOptions(values, key),
+    );
   };
 
   const isOptions = (
-    options: Record<string, OptionType[]> | OptionType[]
+    options: Record<string, OptionType[]> | OptionType[],
   ): options is OptionType[] => {
     return Array.isArray(options);
   };
@@ -116,32 +126,46 @@ const Select: FunctionComponent<SelectProps> = ({
       {label && <Label label={label} />}
       <Listbox
         value={selected}
-        onChange={(option: OptionType & OptionType[]) => !multiple && handleChange(option)}
+        onChange={(option: OptionType & OptionType[]) =>
+          !multiple && handleChange(option)
+        }
         multiple={multiple}
         disabled={disabled}
       >
         {({ open }) => (
           <>
-            <div className={clx("relative text-sm", disabled ? "cursor-not-allowed" : "")}>
+            <div
+              className={clx(
+                "relative text-sm",
+                disabled ? "cursor-not-allowed" : "",
+              )}
+            >
               <Listbox.Button
                 className={clx(
-                  "dark:border-washed-dark shadow-button relative flex w-full flex-col items-start gap-1.5 rounded-md border py-1.5 pl-3 pr-8 text-left dark:bg-black lg:w-fit lg:flex-row lg:items-center",
+                  "relative flex w-full flex-col items-start gap-1.5 rounded-md border py-1.5 pl-3 pr-8 text-left shadow-button dark:border-washed-dark dark:bg-black lg:w-fit lg:flex-row lg:items-center",
                   className,
                   disabled
-                    ? "bg-outline text-dim pointer-events-none"
-                    : "hover:border-outlineHover focus:outline-none focus-visible:ring-0"
+                    ? "pointer-events-none bg-outline text-dim"
+                    : "hover:border-outlineHover focus:outline-none focus-visible:ring-0",
                 )}
               >
                 <>
-                  {sublabel && <span className="text-dim truncate">{sublabel}</span>}
+                  {sublabel && (
+                    <span className="truncate text-dim">{sublabel}</span>
+                  )}
 
                   <span className={`block truncate ${label ? "" : ""}`}>
                     {multiple
-                      ? title ?? placeholder
-                      : (selected as OptionType)?.label || placeholder || "Select"}
+                      ? (title ?? placeholder)
+                      : (selected as OptionType)?.label ||
+                        placeholder ||
+                        "Select"}
                   </span>
                   <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-1.5">
-                    <ChevronDownIcon className="text-dim h-5 w-5" aria-hidden="true" />
+                    <ChevronDownIcon
+                      className="h-5 w-5 text-dim"
+                      aria-hidden="true"
+                    />
                   </span>
                 </>
               </Listbox.Button>
@@ -154,8 +178,12 @@ const Select: FunctionComponent<SelectProps> = ({
               >
                 <Listbox.Options
                   className={clx(
-                    "shadow-floating absolute z-20 mt-1 max-h-80 w-full overflow-auto rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none lg:w-auto",
-                    anchor === "right" ? "right-0" : anchor === "left" ? "left-0" : anchor
+                    "absolute z-20 mt-1 max-h-80 w-full overflow-auto rounded-md shadow-floating ring-1 ring-black ring-opacity-5 focus:outline-none lg:w-auto",
+                    anchor === "right"
+                      ? "right-0"
+                      : anchor === "left"
+                        ? "left-0"
+                        : anchor,
                   )}
                   static={!disabled}
                 >

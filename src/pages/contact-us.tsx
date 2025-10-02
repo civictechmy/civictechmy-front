@@ -24,21 +24,24 @@ const ContactUs: Page = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = withi18n(["contact-us"], async () => {
-  try {
-    return {
-      notFound: false,
-      props: {
-        meta: {
-          id: "contact-us",
-          type: "misc",
+export const getStaticProps: GetStaticProps = withi18n(
+  ["contact-us"],
+  async () => {
+    try {
+      return {
+        notFound: false,
+        props: {
+          meta: {
+            id: "contact-us",
+            type: "misc",
+          },
         },
-      },
-    };
-  } catch (error: any) {
-    console.error(error.message);
-    return { notFound: true };
-  }
-});
+      };
+    } catch (error: any) {
+      console.error(error.message);
+      return { notFound: true };
+    }
+  },
+);
 
 export default ContactUs;

@@ -42,8 +42,8 @@ const Item: FunctionComponent<NavItemProps> = ({
         scroll={false}
         onClick={onClick}
         className={clx(
-          "flex items-center gap-2 rounded-none px-2 py-2 text-sm font-medium transition hover:cursor-pointer md:rounded-md ",
-          className
+          "flex items-center gap-2 rounded-none px-2 py-2 text-sm font-medium transition hover:cursor-pointer md:rounded-md",
+          className,
         )}
         external={external}
       >
@@ -51,7 +51,7 @@ const Item: FunctionComponent<NavItemProps> = ({
         {title}
       </At>
       {pathname.startsWith(link) && link !== "/" ? (
-        <div className="h-1 rounded-[4px] w-1/4 self-center bg-orange" />
+        <div className="h-1 w-1/4 self-center rounded-[4px] bg-orange" />
       ) : (
         <div className="h-1" />
       )}
@@ -67,7 +67,7 @@ const Nav: NavFunctionComponent = ({ children, stateSelector }) => {
   const open = () => setShowMobile(true);
 
   return (
-    <div className="flex absolute left-1/2 -translate-x-1/2">
+    <div className="absolute left-1/2 flex -translate-x-1/2">
       {/* Desktop */}
       <div className="hidden w-fit gap-1 lg:flex">{children(close)}</div>
 
@@ -77,7 +77,7 @@ const Nav: NavFunctionComponent = ({ children, stateSelector }) => {
         <ThemeToggle />
         <Dropdown
           width="w-fit"
-          selected={languages.find(lang => lang.value === language)}
+          selected={languages.find((lang) => lang.value === language)}
           onChange={onLanguageChange}
           options={languages}
         />
@@ -96,8 +96,8 @@ const Nav: NavFunctionComponent = ({ children, stateSelector }) => {
       {/* Mobile - Menu */}
       <div
         className={clx(
-          "dark:divide-washed-dark shadow-floating fixed left-0 top-[57px] flex w-full flex-col gap-0 divide-y bg-white px-4 py-2 backdrop-blur-md dark:bg-black/80 lg:hidden lg:gap-1 lg:divide-y-0 lg:p-1",
-          showMobile ? "flex" : "hidden"
+          "fixed left-0 top-[57px] flex w-full flex-col gap-0 divide-y bg-white px-4 py-2 shadow-floating backdrop-blur-md dark:divide-washed-dark dark:bg-black/80 lg:hidden lg:gap-1 lg:divide-y-0 lg:p-1",
+          showMobile ? "flex" : "hidden",
         )}
       >
         {children(close)}

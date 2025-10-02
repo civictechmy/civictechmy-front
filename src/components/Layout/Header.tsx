@@ -1,6 +1,5 @@
 import Container from "@components/Container";
 import { useTranslation } from "@lib/hooks/useTranslation";
-import Image from "next/image";
 import Link from "next/link";
 import { FunctionComponent, ReactNode } from "react";
 import SiteIcons from "../SiteIcons";
@@ -13,7 +12,7 @@ import { languages } from "@/lib/constants";
 interface HeaderProps {}
 
 const Header: FunctionComponent<HeaderProps> = () => {
-  const { t, i18n } = useTranslation(["common"]);
+  const { t } = useTranslation(["common"]);
   const { language, onLanguageChange } = useLanguage();
 
   return (
@@ -22,13 +21,13 @@ const Header: FunctionComponent<HeaderProps> = () => {
         background="bg-transparent dark:bg-transparent"
         className="flex items-center gap-4 py-12"
       >
-        <div className="flex w-full justify-between items-center gap-4 relative">
+        <div className="relative flex w-full items-center justify-between gap-4">
           <Link href="/">
             <SiteIcons />
           </Link>
 
           <Nav>
-            {close => (
+            {(close) => (
               <>
                 <Nav.Item
                   title={t("common:nav.about_us")}
@@ -62,7 +61,7 @@ const Header: FunctionComponent<HeaderProps> = () => {
             <ThemeToggle />
             <Dropdown
               width="w-fit"
-              selected={languages.find(lang => lang.value === language)}
+              selected={languages.find((lang) => lang.value === language)}
               onChange={onLanguageChange}
               options={languages}
             />

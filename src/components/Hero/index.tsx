@@ -38,11 +38,15 @@ const Hero: FunctionComponent<HeroProps> = ({
   return (
     <Container
       background={clx("hero", "relative")}
-      className={clx("px-0 lg:px-0 divide-y-0", className)}
+      className={clx("divide-y-0 px-0 lg:px-0", className)}
     >
       <Header />
-      <div className="flex flex-col items-center space-y-6 pb-20 max-w-[800px] mx-auto">
-        {typeof title === "string" ? <h1 className="text-[42px]">{title}</h1> : title}
+      <div className="mx-auto flex max-w-[800px] flex-col items-center space-y-6 pb-20">
+        {typeof title === "string" ? (
+          <h1 className="text-[42px]">{title}</h1>
+        ) : (
+          title
+        )}
 
         <p className="text-dim">{description}</p>
       </div>

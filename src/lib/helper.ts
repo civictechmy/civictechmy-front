@@ -21,24 +21,32 @@ export const clx = (...args: ClassNameValue[]): string => {
 export const toDate = (
   timestamp: number | string,
   format: string = "dd MMM yyyy",
-  locale: string = "en-GB"
+  locale: string = "en-GB",
 ): string => {
   if (typeof timestamp === "number") {
-    const formatted_date = DateTime.fromMillis(timestamp).setLocale(locale).toFormat(format);
+    const formatted_date = DateTime.fromMillis(timestamp)
+      .setLocale(locale)
+      .toFormat(format);
     return formatted_date !== "Invalid DateTime" ? formatted_date : "N/A";
   }
 
   if (/^\d{4}-\d{2}$/.test(timestamp)) {
     // Format: YYYY-MM
-    return DateTime.fromFormat(timestamp, "yyyy-MM").setLocale(locale).toFormat("MMM yyyy");
+    return DateTime.fromFormat(timestamp, "yyyy-MM")
+      .setLocale(locale)
+      .toFormat("MMM yyyy");
   } else if (/^\d{4}-Q[1-4]$/.test(timestamp)) {
     // Format: YYYY-QQ
     return DateTime.fromFormat(timestamp, "yyyy-'Q'q")
       .setLocale(locale)
-      .toFormat(`${locale === "ms-MY" ? "'ST'" : ""}q${locale === "ms-MY" ? "" : "Q"} yyyy`);
+      .toFormat(
+        `${locale === "ms-MY" ? "'ST'" : ""}q${locale === "ms-MY" ? "" : "Q"} yyyy`,
+      );
   } else if (/^\d+$/.test(timestamp)) {
     // Format: YYYY
-    return DateTime.fromFormat(timestamp, "yyyy").setLocale(locale).toFormat("yyyy");
+    return DateTime.fromFormat(timestamp, "yyyy")
+      .setLocale(locale)
+      .toFormat("yyyy");
   } else {
     const date = DateTime.fromSQL(timestamp);
     const formatted_date = date.setLocale(locale).toFormat(format);
@@ -60,9 +68,10 @@ export const interpolate = (raw_text: string): string | ReactElement[] => {
 
   if (matches.length <= 1) return raw_text;
 
-  return matches.map(item => {
+  return matches.map((item) => {
     const match = item.split("](");
-    if (match.length <= 1) return createElement("span", { className: "text-inherit" }, item);
+    if (match.length <= 1)
+      return createElement("span", { className: "text-inherit" }, item);
     const [text, url] = match;
     return createElement(
       "a",
@@ -72,7 +81,7 @@ export const interpolate = (raw_text: string): string | ReactElement[] => {
           "text-primary dark:text-primary-dark hover:underline inline [text-underline-position:from-font]",
         target: "_blank",
       },
-      text
+      text,
     );
   }) as ReactElement[];
 };

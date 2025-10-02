@@ -18,21 +18,24 @@ const JoinUs: Page = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = withi18n(["join-us"], async () => {
-  try {
-    return {
-      notFound: false,
-      props: {
-        meta: {
-          id: "join-us",
-          type: "misc",
+export const getStaticProps: GetStaticProps = withi18n(
+  ["join-us"],
+  async () => {
+    try {
+      return {
+        notFound: false,
+        props: {
+          meta: {
+            id: "join-us",
+            type: "misc",
+          },
         },
-      },
-    };
-  } catch (error: any) {
-    console.error(error.message);
-    return { notFound: true };
-  }
-});
+      };
+    } catch (error: any) {
+      console.error(error.message);
+      return { notFound: true };
+    }
+  },
+);
 
 export default JoinUs;

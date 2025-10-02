@@ -16,8 +16,9 @@ const config: Config = {
     },
     extend: {
       backgroundImage: {
-        "gradient-radial": "radial-gradient(50% 125% at 50% -70%, var(--tw-gradient-stops))",
-        "close": "url(../../public/static/images/hero-pattern.png)",
+        "gradient-radial":
+          "radial-gradient(50% 125% at 50% -70%, var(--tw-gradient-stops))",
+        close: "url(../../public/static/images/hero-pattern.png)",
       },
       fontFamily: {
         sans: ["var(--font-body)", ...fontFamily.sans],

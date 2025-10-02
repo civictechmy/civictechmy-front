@@ -45,7 +45,7 @@
   }
 
   .btn-primary {
-    @apply btn from-primary to-primary-dark shadow-button bg-gradient-to-t px-3 py-1.5 text-white hover:to-[#5B8EFF];
+    @apply btn bg-gradient-to-t from-primary to-primary-dark px-3 py-1.5 text-white shadow-button hover:to-[#5B8EFF];
   }
 
   .btn-primary svg {
@@ -53,30 +53,27 @@
   }
 
   .btn-ghost {
-    @apply btn hover:bg-washed dark:hover:bg-washed-dark px-3 py-1.5;
+    @apply btn px-3 py-1.5 hover:bg-washed dark:hover:bg-washed-dark;
   }
 
   .btn-default {
-    @apply btn btn-border active:bg-washed hover:dark:bg-washed-dark/50 active:dark:bg-washed-dark bg-white px-3 py-1.5 text-black dark:bg-black dark:text-white;
+    @apply btn btn-border bg-white px-3 py-1.5 text-black active:bg-washed dark:bg-black dark:text-white hover:dark:bg-washed-dark/50 active:dark:bg-washed-dark;
   }
 
   .btn-border {
-    @apply border-outline dark:border-washed-dark hover:border-outlineHover hover:dark:border-outlineHover-dark;
+    @apply hover:border-outlineHover hover:dark:border-outlineHover-dark border-outline dark:border-washed-dark;
   }
 
   .btn-disabled {
-    @apply disabled:bg-outline dark:disabled:bg-washed-dark 
-    disabled:border-outline dark:disabled:border-washed-dark 
-    disabled:text-outlineHover dark:disabled:text-outlineHover-dark 
-    disabled:pointer-events-none disabled:cursor-not-allowed;
+    @apply disabled:text-outlineHover dark:disabled:text-outlineHover-dark disabled:pointer-events-none disabled:cursor-not-allowed disabled:border-outline disabled:bg-outline dark:disabled:border-washed-dark dark:disabled:bg-washed-dark;
   }
 
   .link-primary {
-    @apply text-primary cursor-pointer font-medium [text-underline-position:from-font] hover:underline;
+    @apply cursor-pointer font-medium text-primary [text-underline-position:from-font] hover:underline;
   }
 
   .link-dim {
-    @apply text-dim cursor-pointer text-sm [text-underline-position:from-font] hover:text-black hover:underline dark:hover:text-white;
+    @apply cursor-pointer text-sm text-dim [text-underline-position:from-font] hover:text-black hover:underline dark:hover:text-white;
   }
 
   .number {
@@ -93,6 +90,6 @@
     @apply dark:to-black;
     @apply bg-no-repeat;
     @apply bg-[length:100%,100%];
-    @apply bg-cover
+    @apply bg-cover;
   }
 }

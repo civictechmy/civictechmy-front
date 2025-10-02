@@ -11,16 +11,22 @@ import Nexti18NextConfig from "../../next-i18next.config";
 function App({ Component, pageProps }: AppPropsLayout) {
   const layout =
     Component.layout ||
-    ((page: ReactNode) => <Layout className={clx(body.variable, "font-sans")}>{page}</Layout>);
+    ((page: ReactNode) => (
+      <Layout className={clx(body.variable, "font-sans")}>{page}</Layout>
+    ));
   return (
     <div
       className={clx(
         body.variable,
         header.variable,
-        "font-sans bg-white text-black dark:text-white dark:bg-black"
+        "bg-white font-sans text-black dark:bg-black dark:text-white",
       )}
     >
-      <ThemeProvider attribute="class" enableSystem={false} forcedTheme={Component.theme}>
+      <ThemeProvider
+        attribute="class"
+        enableSystem={false}
+        forcedTheme={Component.theme}
+      >
         {layout(<Component {...pageProps} />, pageProps)}
       </ThemeProvider>
     </div>

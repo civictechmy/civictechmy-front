@@ -1,6 +1,12 @@
 import Label, { LabelProps } from "../Label";
 import { clx } from "@lib/helper";
-import { FunctionComponent, HTMLInputTypeAttribute, ReactElement, useEffect, useRef } from "react";
+import {
+  FunctionComponent,
+  HTMLInputTypeAttribute,
+  ReactElement,
+  useEffect,
+  useRef,
+} from "react";
 
 interface InputProps extends LabelProps {
   className?: string;
@@ -50,8 +56,8 @@ const Input: FunctionComponent<InputProps> = ({
       {label && <Label name={name} label={label} required={required} />}
       <div
         className={clx(
-          "text-dim absolute left-3 h-full",
-          !label ? "translate-y-[25%]" : "translate-y-[65%]"
+          "absolute left-3 h-full text-dim",
+          !label ? "translate-y-[25%]" : "translate-y-[65%]",
         )}
       >
         {icon && icon}
@@ -68,21 +74,23 @@ const Input: FunctionComponent<InputProps> = ({
         max={max}
         readOnly={readOnly}
         className={clx(
-          "placeholder:text-dim focus:ring-dim w-full rounded-md px-3 text-sm dark:bg-black dark:text-white",
-          "focus:ring-primary dark:focus:ring-primary-dark focus:outline-none",
+          "w-full rounded-md px-3 text-sm placeholder:text-dim focus:ring-dim dark:bg-black dark:text-white",
+          "focus:outline-none focus:ring-primary dark:focus:ring-primary-dark",
           icon ? "pl-10" : "",
-          validation ? "border-danger border-2" : "border-outline dark:border-washed-dark",
-          className
+          validation
+            ? "border-2 border-danger"
+            : "border-outline dark:border-washed-dark",
+          className,
         )}
         placeholder={placeholder}
         value={value}
         required={required}
-        onChange={e => {
+        onChange={(e) => {
           if (onChange) onChange(e.target.value);
         }}
         onKeyDown={onKeyDown}
       />
-      {validation && <p className="text-danger text-xs">{validation}</p>}
+      {validation && <p className="text-xs text-danger">{validation}</p>}
     </div>
   );
 };

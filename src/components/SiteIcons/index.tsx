@@ -13,7 +13,7 @@ const SiteIcons: FunctionComponent<SiteIconsProps> = () => {
     return (
       <div className="flex items-center gap-1.5 tracking-[3px]">
         <>
-          <div className="w-[42px] h-[36px]">
+          <div className="h-[36px] w-[42px]">
             <Image
               src={"/static/images/icons/tiger-dark.png"}
               alt="sdasda Icon Dark"
@@ -25,16 +25,16 @@ const SiteIcons: FunctionComponent<SiteIconsProps> = () => {
           <div className="uppercase">
             {i18n.language === "en-GB" && (
               <>
-                <p className="font-bold leading-tight text-lg dark:text-white">
+                <p className="text-lg font-bold leading-tight dark:text-white">
                   axasdas<span className="font-medium">dasdasd</span>
                 </p>
-                <p className="font-semibold text-xs text-orange">Solutions</p>
+                <p className="text-xs font-semibold text-orange">Solutions</p>
               </>
             )}
             {i18n.language === "ms-MY" && (
               <>
-                <p className="font-semibold text-xs text-orange">Peneraju</p>
-                <p className="font-bold leading-tight text-lg">
+                <p className="text-xs font-semibold text-orange">Peneraju</p>
+                <p className="text-lg font-bold leading-tight">
                   sadasd<span className="font-medium">sadsadas</span>
                 </p>
               </>
@@ -48,7 +48,7 @@ const SiteIcons: FunctionComponent<SiteIconsProps> = () => {
   return (
     <div className="flex items-center gap-1.5 tracking-[3px]">
       <>
-        <div className="w-[42px] h-[36px]">
+        <div className="h-[36px] w-[42px]">
           <Image
             src={"/static/images/icons/tiger-white.png"}
             alt="sadasds Icon"
@@ -59,16 +59,16 @@ const SiteIcons: FunctionComponent<SiteIconsProps> = () => {
         <div className="uppercase">
           {i18n.language === "en-GB" && (
             <>
-              <p className="font-bold leading-tight text-lg">
+              <p className="text-lg font-bold leading-tight">
                 sdasdas<span className="font-medium">sadasdas</span>
               </p>
-              <p className="font-semibold text-xs text-dim">xxx</p>
+              <p className="text-xs font-semibold text-dim">xxx</p>
             </>
           )}
           {i18n.language === "ms-MY" && (
             <>
-              <p className="font-semibold text-xs text-dim">xxx</p>
-              <p className="font-bold leading-tight text-lg">
+              <p className="text-xs font-semibold text-dim">xxx</p>
+              <p className="text-lg font-bold leading-tight">
                 sadasdas<span className="font-medium">sdasda</span>
               </p>
             </>

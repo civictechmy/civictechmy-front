@@ -15,21 +15,24 @@ const OurWork: Page = () => {
   );
 };
 
-export const getStaticProps: GetStaticProps = withi18n(["our-work"], async () => {
-  try {
-    return {
-      notFound: false,
-      props: {
-        meta: {
-          id: "our-work",
-          type: "misc",
+export const getStaticProps: GetStaticProps = withi18n(
+  ["our-work"],
+  async () => {
+    try {
+      return {
+        notFound: false,
+        props: {
+          meta: {
+            id: "our-work",
+            type: "misc",
+          },
         },
-      },
-    };
-  } catch (error: any) {
-    console.error(error.message);
-    return { notFound: true };
-  }
-});
+      };
+    } catch (error: any) {
+      console.error(error.message);
+      return { notFound: true };
+    }
+  },
+);
 
 export default OurWork;

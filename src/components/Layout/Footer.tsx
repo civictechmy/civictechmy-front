@@ -16,7 +16,7 @@ const Footer: FunctionComponent<FooterProps> = ({ title, children }) => {
     <Container background="bg-background dark:bg-black border-t dark:border-washed-dark border-outline pt-12 pb-16 z-10">
       <div className="flex w-full flex-col items-center gap-8">
         {/* LOGO */}
-        <div className="flex gap-2 items-center">
+        <div className="flex items-center gap-2">
           <div className="w-12">
             {/* <Image src="/static/images/jata_logo.png" width={48} height={36} alt="jata negara" /> */}
           </div>
@@ -26,16 +26,12 @@ const Footer: FunctionComponent<FooterProps> = ({ title, children }) => {
 
         {/* NAV */}
         <div className="flex flex-col gap-4.5">
-          <div className="flex items-center gap-6 justify-center">
+          <div className="flex items-center justify-center gap-6">
             <p className="font-medium">{t("common:nav.open_source")}:</p>
             <At className="link-dim" external href="#">
               {t("common:nav.frontend")}
             </At>
-            <At
-              className="link-dim"
-              external
-              href="#"
-            >
+            <At className="link-dim" external href="#">
               {t("common:nav.uiux")}
             </At>
           </div>
@@ -57,9 +53,7 @@ const Footer: FunctionComponent<FooterProps> = ({ title, children }) => {
         </div>
         <div className="h-[1px] w-full bg-outline dark:bg-washed-dark" />
 
-        <p className="text-dim text-sm">
-          © {new Date().getFullYear()} Dummy
-        </p>
+        <p className="text-sm text-dim">© {new Date().getFullYear()} Dummy</p>
       </div>
     </Container>
   );

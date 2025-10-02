@@ -19,7 +19,10 @@ export type OptionType = {
 
 export type I18nConfig = UserConfig & { autoloadNs: string[] };
 
-export type defineConfig = (namespace: string[], autoloadNs: string[]) => I18nConfig;
+export type defineConfig = (
+  namespace: string[],
+  autoloadNs: string[],
+) => I18nConfig;
 
 export type MetaPage = Record<string, any> & {
   meta: {
