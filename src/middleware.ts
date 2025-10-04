@@ -5,8 +5,8 @@ import { NextRequest, NextResponse } from "next/server";
 export default async function middleware(request: NextRequest) {
   const handleI18nRouting = createMiddleware(routing);
   const response = handleI18nRouting(request);
-
   const env = process.env.APP_ENV;
+
   if (env !== "staging" && env !== "production") return response;
   // TODO: When launch, remove basic auth on "production"
   else if (env === "staging" || env === "production") {

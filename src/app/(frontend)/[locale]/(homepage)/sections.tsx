@@ -20,11 +20,15 @@ export const StatisticsSection = ({
       <div className="relative flex h-[691px] w-full flex-col gap-8 rounded-xl bg-gradient-to-r from-[#F8FBFF] to-[#C5D9F4] p-8 md:h-[700px] lg:h-full xl:flex-row">
         <div className="z-10 space-y-8 lg:w-[596px]">
           <div className="w-full space-y-4.5">
-            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-txt-govtech-600">
+            <p className="text-txt-govtech-600 text-sm font-semibold uppercase tracking-[0.2em]">
               {statistics.headline}
             </p>
-            <h2 className="font-heading text-heading-sm font-semibold">{statistics.title}</h2>
-            <p className="text-body-md text-txt-black-500">{statistics.description}</p>
+            <h2 className="font-heading text-heading-sm font-semibold">
+              {statistics.title}
+            </h2>
+            <p className="text-body-md text-txt-black-500">
+              {statistics.description}
+            </p>
           </div>
 
           <ProductStatistic siteInfo={siteInfo} products={products} />
@@ -55,7 +59,11 @@ export const StatisticsSection = ({
   );
 };
 
-export const PagesSection = ({ pages }: { pages: Homepage["pages-section"] }) => {
+export const PagesSection = ({
+  pages,
+}: {
+  pages: Homepage["pages-section"];
+}) => {
   if (!pages) {
     return null;
   }
@@ -81,13 +89,17 @@ export const PagesSection = ({ pages }: { pages: Homepage["pages-section"] }) =>
                 />
               </div>
               <div className="flex-1 space-y-2">
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-txt-govtech-600">
+                <p className="text-txt-govtech-600 text-xs font-semibold uppercase tracking-[0.2em]">
                   {page.headline}
                 </p>
 
-                <p className="flex items-center gap-2 text-body-xl font-semibold">{page.title}</p>
+                <p className="flex items-center gap-2 text-body-xl font-semibold">
+                  {page.title}
+                </p>
 
-                <p className="text-body-md text-txt-black-500">{page.description}</p>
+                <p className="text-body-md text-txt-black-500">
+                  {page.description}
+                </p>
 
                 {page.link && page.link.reference !== "null" && (
                   <div className="pt-2.5">

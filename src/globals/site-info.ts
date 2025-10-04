@@ -2,7 +2,6 @@ import link from "@/lib/fields/link";
 import { GlobalConfig } from "payload";
 import { revalidate } from "@/lib/revalidate";
 
-
 export const SiteInfoGlobal: GlobalConfig = {
   slug: "site-info",
   label: "Site Info",
@@ -141,7 +140,8 @@ export const SiteInfoGlobal: GlobalConfig = {
       type: "group",
       label: "Site Metadata",
       admin: {
-        description: "Section to write metadata for the site and setting OG Images",
+        description:
+          "Section to write metadata for the site and setting OG Images",
       },
       fields: [
         {
@@ -329,6 +329,6 @@ export const SiteInfoGlobal: GlobalConfig = {
       async () => {
         await revalidate("");
       },
-    ]
-  }
+    ],
+  },
 };

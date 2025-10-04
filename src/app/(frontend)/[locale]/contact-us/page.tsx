@@ -1,5 +1,9 @@
 import React from "react";
-import { PhoneIcon, EmailIcon, DirectionIcon } from "@govtechmy/myds-react/icon";
+import {
+  PhoneIcon,
+  EmailIcon,
+  DirectionIcon,
+} from "@govtechmy/myds-react/icon";
 import { getPayload } from "payload";
 import config from "@payload-config";
 
@@ -26,12 +30,16 @@ export default async function ContactPage({ params }: ServerPageProps) {
               </h1>
               <p className="pt-2 text-body-md font-light text-txt-black-700">
                 {contact.address &&
-                  contact.address.split(",").map((line: string, index: number) => (
-                    <React.Fragment key={index}>
-                      {line.trim()}
-                      {index < contact.address!.split(",").length - 1 && <br />}
-                    </React.Fragment>
-                  ))}
+                  contact.address
+                    .split(",")
+                    .map((line: string, index: number) => (
+                      <React.Fragment key={index}>
+                        {line.trim()}
+                        {index < contact.address!.split(",").length - 1 && (
+                          <br />
+                        )}
+                      </React.Fragment>
+                    ))}
               </p>
               <div className="mt-4.5 flex gap-4 pt-3 text-body-md font-normal text-primary-500">
                 <a

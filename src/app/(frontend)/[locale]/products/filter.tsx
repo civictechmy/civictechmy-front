@@ -8,7 +8,14 @@ export default function ProductFilter() {
   const { setFilter, filter } = useProductContext();
   const t = useTranslations("Product");
 
-  const types = ["all", "websites", "module", "libraries", "standard", "applications"] as const;
+  const types = [
+    "all",
+    "websites",
+    "module",
+    "libraries",
+    "standard",
+    "applications",
+  ] as const;
 
   return (
     <div className="flex flex-wrap items-center gap-y-2 lg:gap-y-0">

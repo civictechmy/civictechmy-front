@@ -1,6 +1,6 @@
 import link from "@/lib/fields/link";
 import { GlobalConfig } from "payload";
-import { revalidate } from "@/lib/revalidate"
+import { revalidate } from "@/lib/revalidate";
 
 // Globals for About Us Page
 export const FooterGlobals: GlobalConfig = {
@@ -31,13 +31,13 @@ export const FooterGlobals: GlobalConfig = {
       type: "row",
       fields: [
         {
-          name: "govtech_label",
-          label: "Govtech Section Label",
+          name: "civictechmy_label",
+          label: "CivicTechMY Section Label",
           type: "text",
           required: true,
           localized: true,
           admin: {
-            placeholder: "Govtech Malaysia",
+            placeholder: "CivicTechMY Malaysia",
             width: "50%",
           },
         },
@@ -45,10 +45,12 @@ export const FooterGlobals: GlobalConfig = {
     },
 
     {
-      name: "govtech_route",
-      label: "Govtech Routes",
+      name: "civictechmy_route",
+      label: "CivicTechMY Routes",
       type: "array",
-      fields: [link({ labelPlaceholder: "Hubungi Kami", localizedLabel: true })],
+      fields: [
+        link({ labelPlaceholder: "Hubungi Kami", localizedLabel: true }),
+      ],
     },
 
     {
@@ -90,6 +92,6 @@ export const FooterGlobals: GlobalConfig = {
       async () => {
         await revalidate("");
       },
-    ]
-  }
+    ],
+  },
 };

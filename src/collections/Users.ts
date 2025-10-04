@@ -1,10 +1,10 @@
-import type { CollectionConfig } from 'payload'
-import { revalidate } from "@/lib/revalidate"
+import type { CollectionConfig } from "payload";
+import { revalidate } from "@/lib/revalidate";
 
 export const Users: CollectionConfig = {
-  slug: 'users',
+  slug: "users",
   admin: {
-    useAsTitle: 'email',
+    useAsTitle: "email",
   },
   auth: true,
   fields: [
@@ -16,6 +16,6 @@ export const Users: CollectionConfig = {
       async () => {
         await revalidate("");
       },
-    ]
-  }
-}
+    ],
+  },
+};

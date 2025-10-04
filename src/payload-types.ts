@@ -593,8 +593,8 @@ export interface Navbar {
 export interface Footer {
   id: string;
   social_label: string;
-  govtech_label: string;
-  govtech_route?:
+  civictechmy_label: string;
+  civictechmy_route?:
     | {
         link: {
           type?: ('reference' | 'custom') | null;
@@ -779,8 +779,8 @@ export interface NavbarSelect<T extends boolean = true> {
  */
 export interface FooterSelect<T extends boolean = true> {
   social_label?: T;
-  govtech_label?: T;
-  govtech_route?:
+  civictechmy_label?: T;
+  civictechmy_route?:
     | T
     | {
         link?:

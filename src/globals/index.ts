@@ -5,7 +5,13 @@ import { FooterGlobals as Footer } from "./footer";
 import { NavBarGlobals as Navbar } from "./navbar";
 import { HomepageGlobals as Homepage } from "./homepage";
 
-const PayloadGlobals: GlobalConfig[] = [SiteInfo, Homepage, AboutUs, Navbar, Footer];
+const PayloadGlobals: GlobalConfig[] = [
+  SiteInfo,
+  Homepage,
+  AboutUs,
+  Navbar,
+  Footer,
+];
 
 export { SiteInfo, Homepage, AboutUs, Navbar, Footer };
 export default PayloadGlobals;

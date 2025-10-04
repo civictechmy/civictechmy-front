@@ -28,7 +28,8 @@ export default function ProductPageClient({ product }: { product: Product }) {
           <div className="hidden lg:block">
             <ProductImages
               images={product.images.map(
-                (img) => (typeof img.image !== "string" && img.image?.url) || "",
+                (img) =>
+                  (typeof img.image !== "string" && img.image?.url) || "",
               )}
             />
           </div>
@@ -47,7 +48,9 @@ export default function ProductPageClient({ product }: { product: Product }) {
             <div className="flex size-[72px] items-center justify-center rounded-md border border-otl-gray-200 bg-bg-dialog-active p-2 shadow-card">
               <Image
                 alt={`${product.name}-logo`}
-                src={(typeof product.logo !== "string" && product.logo.url) || ""}
+                src={
+                  (typeof product.logo !== "string" && product.logo.url) || ""
+                }
                 width={56}
                 height={56}
                 className="absolute size-[56px] object-contain"
@@ -56,7 +59,9 @@ export default function ProductPageClient({ product }: { product: Product }) {
 
             <div className="space-y-3">
               <h1 className="text-heading-xs font-semibold">{product.name}</h1>
-              <p className="text-sm text-txt-black-500">{product.description}</p>
+              <p className="text-sm text-txt-black-500">
+                {product.description}
+              </p>
               <Tag
                 className="group w-fit bg-bg-white hover:cursor-pointer"
                 variant="primary"
@@ -71,7 +76,8 @@ export default function ProductPageClient({ product }: { product: Product }) {
             <div className="block lg:hidden">
               <ProductImages
                 images={product.images.map(
-                  (img) => (typeof img.image !== "string" && img.image?.url) || "",
+                  (img) =>
+                    (typeof img.image !== "string" && img.image?.url) || "",
                 )}
               />
             </div>
@@ -79,19 +85,33 @@ export default function ProductPageClient({ product }: { product: Product }) {
             <div className="hidden h-px bg-otl-divider lg:block" />
 
             <div className="space-y-1.5">
-              <h6 className="text-body-sm font-semibold">{t("project-start")}</h6>
+              <h6 className="text-body-sm font-semibold">
+                {t("project-start")}
+              </h6>
               <p className="text-sm text-txt-black-500">
-                {DateTime.fromISO(product.project_start_date).toFormat("MMM yyyy")}
+                {DateTime.fromISO(product.project_start_date).toFormat(
+                  "MMM yyyy",
+                )}
               </p>
             </div>
 
             <div className="h-px bg-otl-divider" />
 
             <div className="space-y-1.5">
-              <h6 className="text-body-sm font-semibold">{t("project-status")}</h6>
+              <h6 className="text-body-sm font-semibold">
+                {t("project-status")}
+              </h6>
               <Timeline
-                items={product.status ? product.status?.map((stat) => stat.status) : []}
-                active={product.status ? product.status.findIndex((stat) => stat.isActive) : 0}
+                items={
+                  product.status
+                    ? product.status?.map((stat) => stat.status)
+                    : []
+                }
+                active={
+                  product.status
+                    ? product.status.findIndex((stat) => stat.isActive)
+                    : 0
+                }
               />
             </div>
           </div>

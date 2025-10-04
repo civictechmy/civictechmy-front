@@ -1,6 +1,6 @@
 import { GlobalConfig } from "payload";
-import type { Field } from 'payload'
-import { revalidate } from "@/lib/revalidate"
+import type { Field } from "payload";
+import { revalidate } from "@/lib/revalidate";
 import { routes } from "@/lib/routes";
 
 // Globals for About Us Page
@@ -90,7 +90,14 @@ export const AboutUsGlobals: GlobalConfig = {
             ms: "Nama Ikon",
           },
           localized: true,
-          options: ["database", "check-shield", "org-chart", "flag", "edit", "component"],
+          options: [
+            "database",
+            "check-shield",
+            "org-chart",
+            "flag",
+            "edit",
+            "component",
+          ],
         },
         {
           name: "card-description",
@@ -107,9 +114,8 @@ export const AboutUsGlobals: GlobalConfig = {
   hooks: {
     afterChange: [
       async () => {
-        console.log("PROCCC")
         await revalidate(routes.ABOUT_US);
       },
-    ]
-  }
+    ],
+  },
 };

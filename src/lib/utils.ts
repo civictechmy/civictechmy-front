@@ -22,7 +22,10 @@ export function isObject(item: unknown): boolean {
  * @param source
  * @returns merged object
  */
-export function deepMerge<T extends object, R extends object>(target: T, source: R): T & R {
+export function deepMerge<T extends object, R extends object>(
+  target: T,
+  source: R,
+): T & R {
   const output = { ...target } as T & R;
 
   if (isObject(target) && isObject(source)) {

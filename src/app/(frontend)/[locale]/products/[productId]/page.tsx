@@ -13,7 +13,9 @@ export async function generateStaticParams() {
   return products.docs.map((pro) => ({ productId: pro.slug }));
 }
 
-export default async function ProductPage({ params }: ServerPageProps<"productId">) {
+export default async function ProductPage({
+  params,
+}: ServerPageProps<"productId">) {
   const { locale, productId } = await params;
   const payload = await getPayload({ config });
 

@@ -18,13 +18,13 @@
   }
 
   * {
-    --_govtech-700: 45 28 87;
-    --_govtech-600: 79 55 138;
-    --_govtech-200: 210 192 255;
-    --_govtech-100: 244 238 255;
-    --_govtech-50: 247 243 255;
-    --_govtech-secondary: 0 99 211;
-    --_govtech-tertiary: 37 166 223;
+    --_civictech-700: 45 28 87;
+    --_civictech-600: 239 78 35;
+    --_civictech-200: 210 192 255;
+    --_civictech-100: 244 238 255;
+    --_civictech-50: 247 243 255;
+    --_civictech-secondary: 0 99 211;
+    --_civictech-tertiary: 37 166 223;
   }
 
   *,
@@ -34,15 +34,15 @@
   }
 
   :root {
-    --fr-govtech-100: var(--_govtech-100) / 40;
-    --txt-govtech-600: var(--_govtech-600);
-    --txt-govtech-600-dark: var(--_govtech-700);
+    --fr-_civictechmy-100: var(--_civictech-100) / 40;
+    --txt-_civictechmy-600: var(--_civictech-600);
+    --txt-_civictechmy-600-dark: var(--_civictech-700);
   }
 
   .dark {
-    --fr-govtech-100: var(--_govtech-100) / 40;
-    --txt-govtech-600: var(--_govtech-600);
-    --txt-govtech-600-dark: var(--_govtech-200);
+    --fr-_civictechmy-100: var(--_civictech-100) / 40;
+    --txt-_civictechmy-600: var(--_civictech-600);
+    --txt-_civictechmy-600-dark: var(--_civictech-200);
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */

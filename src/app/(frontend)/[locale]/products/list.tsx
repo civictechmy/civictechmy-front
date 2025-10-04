@@ -20,7 +20,10 @@ export default function ProductList() {
   return (
     <div className="grid w-full grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-12">
       {products.map((product, index) => (
-        <div key={`${product.slug}-${index}`} className="flex w-full flex-col gap-6">
+        <div
+          key={`${product.slug}-${index}`}
+          className="flex w-full flex-col gap-6"
+        >
           <div className="relative h-[217.4px] w-full overflow-hidden rounded-lg border border-otl-gray-200 md:h-[178.8px] md:w-[288px] lg:h-[155.3px] lg:w-[250px] xl:h-[200px] xl:w-[322px]">
             <Image
               alt={product.name}
@@ -38,7 +41,9 @@ export default function ProductList() {
 
           <div className="flex grow flex-col gap-2">
             <h6 className="text-body-xl font-semibold">{product.name}</h6>
-            <p className="line-clamp-3 text-body-md text-txt-black-500">{product.description}</p>
+            <p className="line-clamp-3 text-body-md text-txt-black-500">
+              {product.description}
+            </p>
 
             <div className="flex-1 content-end pt-3">
               <Link href={`/products/${product.slug}`}>

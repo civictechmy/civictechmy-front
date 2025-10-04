@@ -58,11 +58,19 @@ export default function ProductImages({ images }: { images: string[] }) {
               viewBox={i === current ? "0 0 15 8" : "0 0 8 8"}
               className={cn(
                 "transition-[colors,_width] duration-300 ease-in-out",
-                i === current ? "h-2 w-[15px] text-bg-black-500" : "size-2 text-bg-black-300",
+                i === current
+                  ? "h-2 w-[15px] text-bg-black-500"
+                  : "size-2 text-bg-black-300",
               )}
               xmlns="http://www.w3.org/2000/svg"
             >
-              <rect x="0" width={i === current ? 15 : 8} height="8" rx="4" fill="currentColor" />
+              <rect
+                x="0"
+                width={i === current ? 15 : 8}
+                height="8"
+                rx="4"
+                fill="currentColor"
+              />
             </svg>
           ))}
         </div>

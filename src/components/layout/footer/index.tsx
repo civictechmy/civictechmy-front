@@ -18,7 +18,10 @@ import {
 import { Link } from "@govtechmy/myds-react/link";
 import { Link as RouteLink } from "@/lib/i18n/routing";
 import Image from "next/image";
-import { Footer as FooterType, SiteInfo as SiteInfoType } from "@/payload-types";
+import {
+  Footer as FooterType,
+  SiteInfo as SiteInfoType,
+} from "@/payload-types";
 import { Fragment } from "react";
 
 const socialMap: Record<string, React.ElementType> = {
@@ -44,17 +47,23 @@ export default function LayoutFooter({
             <FooterLogo
               logo={
                 <Image
-                  src="/static/images/icons/img-logo-govtech.svg"
-                  width={91}
-                  height={32}
-                  alt="Govtech Logo"
+                  src="/static/images/icons/tiger-color.svg"
+                  width={50}
+                  height={50}
+                  alt="CivicTechMY Logo"
                   className="select-none"
                 />
               }
             />
+            <Link href={"/"} className="no-underline">
+              <p className="text-xl font-bold">
+                <span className="text-txt-_civictechmy-600">CIVIC</span>
+                TECH.MY
+              </p>
+            </Link>
           </div>
-          <p className="text-body-sm text-txt-black-700">
-            {/* {siteInfo.address} */}
+
+          {/* <p className="text-body-sm text-txt-black-700">
             {siteInfo.address &&
               siteInfo.address.split(",").map((line: string, index: number) => (
                 <Fragment key={index}>
@@ -62,7 +71,7 @@ export default function LayoutFooter({
                   {index < siteInfo.address!.split(",").length - 1 && <br />}
                 </Fragment>
               ))}
-          </p>
+          </p> */}
           {siteInfo["social-media"] && siteInfo["social-media"]?.length > 0 && (
             <>
               <p className="not-prose text-body-sm font-semibold text-txt-black-900">
@@ -72,8 +81,17 @@ export default function LayoutFooter({
                 {siteInfo["social-media"].map((sm) => {
                   const IconComponent = socialMap[sm.icon || "x"] || "span";
                   return (
-                    <Link underline="none" className="hover:text-txt-black-900" asChild key={sm.id}>
-                      <RouteLink href={sm.link.url || ""} target="_blank" rel="noopener noreferrer">
+                    <Link
+                      underline="none"
+                      className="hover:text-txt-black-900"
+                      asChild
+                      key={sm.id}
+                    >
+                      <RouteLink
+                        href={sm.link.url || ""}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
                         <IconComponent className="text-txt-black-700" />
                       </RouteLink>
                     </Link>
@@ -89,8 +107,8 @@ export default function LayoutFooter({
         <SiteLinkGroup groupTitle=""></SiteLinkGroup>
         {/* End of Buffer Group */}
 
-        <SiteLinkGroup groupTitle={footerData.govtech_label}>
-          {footerData.govtech_route?.map((route) => (
+        <SiteLinkGroup groupTitle={footerData.civictechmy_label}>
+          {footerData.civictechmy_route?.map((route) => (
             <SiteLink key={route.id} asChild className="w-fit">
               <RouteLink
                 href={route.link.url || route.link.reference || "#"}

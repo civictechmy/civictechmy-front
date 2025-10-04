@@ -44,7 +44,9 @@ export default async function AboutPage({ params }: ServerPageProps) {
             <h1 className="text-black-900 font-heading text-heading-md font-semibold md:text-heading-lg">
               {aboutUs?.["intro-header"]}
             </h1>
-            <p className="font-body text-body-md text-gray-500">{aboutUs?.["intro-description"]}</p>
+            <p className="font-body text-body-md text-gray-500">
+              {aboutUs?.["intro-description"]}
+            </p>
           </div>
         </div>
       </section>
@@ -66,7 +68,10 @@ export default async function AboutPage({ params }: ServerPageProps) {
                   return (
                     <p
                       key={`${index}_futue`}
-                      className={cn("text-body-md text-txt-black-500", index !== 0 && "my-2")}
+                      className={cn(
+                        "text-body-md text-txt-black-500",
+                        index !== 0 && "my-2",
+                      )}
                     >
                       {value?.["line-text"]}
                     </p>
@@ -96,7 +101,7 @@ export default async function AboutPage({ params }: ServerPageProps) {
                     className="shadow-sm flex flex-row gap-4 rounded-lg border border-gray-200 p-6"
                   >
                     <div className="bg-orange-100 mb-4 flex h-auto w-[48px] items-start justify-center rounded-full">
-                      <div className="flex h-[48px] w-[48px] items-center justify-center rounded bg-govtech-50 text-govtech-700">
+                      <div className="bg-govtech-50 text-govtech-700 flex h-[48px] w-[48px] items-center justify-center rounded">
                         <IconComponent className="h-[28px] w-[28px]" />
                       </div>
                     </div>

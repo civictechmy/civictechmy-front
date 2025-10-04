@@ -11,10 +11,10 @@ export default function Timeline({ items, active }: TimelineProps) {
     <div className="lg:hide-scrollbar flex flex-col items-center p-6 lg:flex-row lg:justify-start lg:overflow-scroll lg:py-20 xl:overflow-visible">
       {items.map((title, i) => (
         <div key={i} className="flex flex-col items-center lg:flex-row">
-          <div className="relative size-1.5 rounded-full bg-govtech-600">
+          <div className="bg-govtech-600 relative size-1.5 rounded-full">
             <div
               className={cn(
-                "border-[0.5px] border-dashed border-govtech-600",
+                "border-govtech-600 border-[0.5px] border-dashed",
                 "h-px w-5 lg:h-5 lg:w-px",
                 "absolute transform max-lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2",
                 i % 2 === 0
@@ -38,12 +38,14 @@ export default function Timeline({ items, active }: TimelineProps) {
                 )}
               >
                 {i < active ? (
-                  <CheckCircleFillIcon className="size-4 shrink-0 text-govtech-600" />
+                  <CheckCircleFillIcon className="text-govtech-600 size-4 shrink-0" />
                 ) : (
                   <div
                     className={cn(
-                      "mt-0.5 size-3 shrink-0 rounded-full border-4 border-govtech-600",
-                      i === active ? "text-govtech-600" : "text-txt-gray-300 opacity-30",
+                      "border-govtech-600 mt-0.5 size-3 shrink-0 rounded-full border-4",
+                      i === active
+                        ? "text-govtech-600"
+                        : "text-txt-gray-300 opacity-30",
                     )}
                   />
                 )}
@@ -63,7 +65,7 @@ export default function Timeline({ items, active }: TimelineProps) {
             </div>
           </div>
           {i < items.length - 1 ? (
-            <div className="h-8 w-px bg-gradient-to-b from-govtech-600 to-transparent lg:h-px lg:w-20 lg:bg-gradient-to-r" />
+            <div className="from-govtech-600 h-8 w-px bg-gradient-to-b to-transparent lg:h-px lg:w-20 lg:bg-gradient-to-r" />
           ) : (
             <></>
           )}

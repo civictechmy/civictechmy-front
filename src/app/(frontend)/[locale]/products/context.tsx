@@ -27,10 +27,14 @@ export function ProductProvider({
   const [filter, setFilter] = useState<ProductType>("all");
 
   const filteredProducts =
-    filter !== "all" ? products.filter((product) => product.type === filter) : products;
+    filter !== "all"
+      ? products.filter((product) => product.type === filter)
+      : products;
 
   return (
-    <ProductContext.Provider value={{ filter, setFilter, products, filteredProducts }}>
+    <ProductContext.Provider
+      value={{ filter, setFilter, products, filteredProducts }}
+    >
       {children}
     </ProductContext.Provider>
   );

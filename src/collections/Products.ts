@@ -1,6 +1,6 @@
 import { Product } from "@/payload-types";
 import type { CollectionConfig } from "payload";
-import { revalidate } from "@/lib/revalidate"
+import { revalidate } from "@/lib/revalidate";
 
 export const Products: CollectionConfig = {
   slug: "products",
@@ -231,15 +231,31 @@ export const Products: CollectionConfig = {
         },
       ],
       defaultValue: ({ locale }) => [
-        { status: locale === "en-GB" ? "New" : "Baru", isActive: true, phase_index: "0" },
         {
-          status: locale === "en-GB" ? "Planning & Design" : "Perangkaan & Reka Bentuk",
+          status: locale === "en-GB" ? "New" : "Baru",
+          isActive: true,
           phase_index: "0",
         },
-        { status: locale === "en-GB" ? "In Development" : "Dalam Pembangunan", phase_index: "0" },
-        { status: locale === "en-GB" ? "Ready" : "Sedia Digunakan", phase_index: "1" },
+        {
+          status:
+            locale === "en-GB"
+              ? "Planning & Design"
+              : "Perangkaan & Reka Bentuk",
+          phase_index: "0",
+        },
+        {
+          status: locale === "en-GB" ? "In Development" : "Dalam Pembangunan",
+          phase_index: "0",
+        },
+        {
+          status: locale === "en-GB" ? "Ready" : "Sedia Digunakan",
+          phase_index: "1",
+        },
         { status: locale === "en-GB" ? "Active" : "Aktif", phase_index: "1" },
-        { status: locale === "en-GB" ? "Terminated" : "Dihentikan", phase_index: "1" },
+        {
+          status: locale === "en-GB" ? "Terminated" : "Dihentikan",
+          phase_index: "1",
+        },
       ],
       validate: (_features) => {
         if (!Array.isArray(_features)) {
@@ -264,6 +280,6 @@ export const Products: CollectionConfig = {
       async () => {
         await revalidate("");
       },
-    ]
-  }
+    ],
+  },
 };

@@ -1,7 +1,7 @@
 import link from "@/lib/fields/link";
 import { routes } from "@/lib/routes";
 import { GlobalConfig } from "payload";
-import { revalidate } from "@/lib/revalidate"
+import { revalidate } from "@/lib/revalidate";
 
 // Globals for Homepage Page
 export const HomepageGlobals: GlobalConfig = {
@@ -98,7 +98,10 @@ export const HomepageGlobals: GlobalConfig = {
             link({
               labelPlaceholder: "To hide the Button, select 'None'",
               localizedLabel: true,
-              linkOption: Object.entries({ ...{ NONE: "null" }, ...routes }).map(([key, value]) => {
+              linkOption: Object.entries({
+                ...{ NONE: "null" },
+                ...routes,
+              }).map(([key, value]) => {
                 const _key = "".concat(...key.split("_").join(" "));
                 return {
                   label: _key,
@@ -116,6 +119,6 @@ export const HomepageGlobals: GlobalConfig = {
       async () => {
         await revalidate("");
       },
-    ]
-  }
+    ],
+  },
 };
