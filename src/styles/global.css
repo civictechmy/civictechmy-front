@@ -37,6 +37,12 @@
     --fr-_civictechmy-100: var(--_civictech-100) / 40;
     --txt-_civictechmy-600: var(--_civictech-600);
     --txt-_civictechmy-600-dark: var(--_civictech-700);
+    --btn-_civictechmy-unset: var(--_civictech-unset);
+    --btn-_civictechmy-default-outline: var(--_civictech-default-outline);
+    --btn-_civictechmy-primary-outline: var(--_civictech-primary-outline);
+    --btn-_civictechmy-primary-fill: var(--_civictech-primary-fill);
+
+    --btn-_civictechmy-unset-dark: var(--_civictech-unset-dark);
   }
 
   .dark {

@@ -16,8 +16,8 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@govtechmy/myds-react": "^0.0.23",
-    "@govtechmy/myds-style": "^0.0.10",
+    "@govtechmy/myds-react": "^1.0.2",
+    "@govtechmy/myds-style": "^1.0.0",
     "@payloadcms/db-mongodb": "3.25.0",
     "@payloadcms/next": "3.25.0",
     "@payloadcms/payload-cloud": "3.25.0",
@@ -34,8 +34,8 @@
     "next-intl": "^3.26.5",
     "next-themes": "^0.4.4",
     "payload": "3.25.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "sharp": "0.32.6",
     "tailwind-merge": "^2.6.0"
   },
@@ -43,8 +43,8 @@
     "@eslint/eslintrc": "^3.2.0",
     "@types/luxon": "^3.6.2",
     "@types/node": "^22.5.4",
-    "@types/react": "19.0.7",
-    "@types/react-dom": "19.0.3",
+    "@types/react": "19.2.0",
+    "@types/react-dom": "19.2.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.16.0",
     "eslint-config-next": "15.1.5",
